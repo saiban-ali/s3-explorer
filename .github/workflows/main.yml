@@ -37,5 +37,5 @@ jobs:
       - name: Install awscli
         run: pip install awscli==1.21.12
 
-      -name: Deploy to S3
+      - name: Deploy to S3
         run: chmod +x deploy.sh && export BUCKET=${{ secrets.AWS_S3_BUCKET_NAME }} && sh deploy.sh
