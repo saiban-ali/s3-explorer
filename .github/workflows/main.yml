@@ -37,8 +37,5 @@ jobs:
       - name: Install awscli
         run: pip install awscli==1.21.12
 
-      - name: Clean Bucket
-        run: aws s3 rm s3://${{ secrets.AWS_S3_BUCKET  }}/* --recursive
-
-      - name: Upload to S3 Bucket
-        run: aws s3 sync ./out s3://${{ secrets.AWS_S3_BUCKET  }}/
+      -name: Deploy to S3
+        run: chmod +x deploy.sh && export BUCKET=${{ secrets.AWS_S3_BUCKET_NAME }} && sh deploy.sh
