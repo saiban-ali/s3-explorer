@@ -1,4 +1,4 @@
-import AppLayout from "@/app/(login)/AppLayout";
+import AppLayout from "@/app/(components)/AppLayout";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";

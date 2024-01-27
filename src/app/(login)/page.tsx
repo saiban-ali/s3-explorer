@@ -1,4 +1,4 @@
-import CredentialsForm from "@/app/(login)/CredentialsForm";
+import CredentialsForm from "@/app/(components)/CredentialsForm";
 import { Card, Flex } from "antd";
 import Image from "next/image";
 

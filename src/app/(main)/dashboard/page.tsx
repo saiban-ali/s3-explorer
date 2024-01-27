@@ -72,7 +72,7 @@ const Dashboard = () => {
   const s3Service = useS3Service();
 
   const onNameClick = useCallback((record: DataType) => {
-    if (record.type === "file") {
+    if (record.type !== "directory") {
       handleOpen(record);
       return;
     }
