@@ -15,8 +15,8 @@ const CredentialsForm: FC = () => {
   const router = useRouter();
 
   const onFinish = async (values: any) => {
-    const { clientId, clientSecret, bucket } = values;
-    s3Service.setConfig({ clientId, clientSecret, bucket });
+    const { clientId, clientSecret, bucket, host, region } = values;
+    s3Service.setConfig({ clientId, clientSecret, bucket, host, region });
 
     router.push("/dashboard");
   };
@@ -44,6 +44,12 @@ const CredentialsForm: FC = () => {
         rules={[{ required: true, message: "Please input bucket name!" }]}
       >
         <Input prefix={<DatabaseOutlined />} placeholder="Bucket Name" />
+      </Form.Item>
+      <Form.Item name="host">
+        <Input placeholder="Host" />
+      </Form.Item>
+      <Form.Item name="region">
+        <Input placeholder="Region" />
       </Form.Item>
 
       <Form.Item>

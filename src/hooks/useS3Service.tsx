@@ -31,6 +31,7 @@ const useS3Service = () => {
     const clientSecret = SessionStorage.get("clientSecret");
     const region = SessionStorage.get("region") ?? "us-east-1";
     const bucket = SessionStorage.get("bucket");
+    const host = SessionStorage.get("host") ?? "";
 
     if (clientId && clientSecret && bucket) {
       service.setConfig({
@@ -38,6 +39,7 @@ const useS3Service = () => {
         clientSecret,
         region,
         bucket,
+        host,
       });
     } else {
       throw new Error("Could not initialize S3 Service");
@@ -50,6 +52,7 @@ const useS3Service = () => {
     SessionStorage.set("clientSecret", config.clientSecret);
     SessionStorage.set("region", config.region);
     SessionStorage.set("bucket", config.bucket);
+    SessionStorage.set("host", config.host);
   }, []);
 
   const setBucket = useCallback((bucket: string) => {

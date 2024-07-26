@@ -12,6 +12,7 @@ export type S3Config = {
   clientSecret: string;
   bucket?: string;
   region?: string;
+  host?: string;
 };
 
 class S3Service {
@@ -34,6 +35,7 @@ class S3Service {
         accessKeyId: config.clientId,
         secretAccessKey: config.clientSecret,
       },
+      endpoint: config.host || undefined,
     });
 
     this.bucket = config.bucket ?? "";
@@ -54,6 +56,7 @@ class S3Service {
         accessKeyId: config.clientId,
         secretAccessKey: config.clientSecret,
       },
+      endpoint: config.host || undefined,
     });
 
     if (config.bucket) {
